@@ -16,3 +16,15 @@ A collection of various resources that I use often.
 
 ### Mathematics
 - [Easing Functions (Curves!)](https://easings.net/)
+
+
+# Platforms
+Various platform links for selling your game.
+
+### Steam
+- [Steamworks](https://partner.steamgames.com/)
+- [Steamworks C# Wrapper](https://steamworks.github.io/)
+- [Steam Docs](https://partner.steamgames.com/doc/home)
+
+### Itchio
+- [Itch.io Dashboard](https://itch.io/dashboard)
