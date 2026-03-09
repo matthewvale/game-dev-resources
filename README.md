@@ -17,6 +17,9 @@ A collection of various resources that I use often.
 ### Mathematics
 - [Easing Functions (Curves!)](https://easings.net/)
 
+### Royalty Free Videos
+- [Pixels](https://www.pexels.com/)
+
 
 # Platforms
 Various platform links for selling your game.
