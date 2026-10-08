@@ -1,24 +1,39 @@
 # Unity C# Code Standards
 
-The C# standards I use on my Unity game Space Nomads. Names such as `GameService`, `GameServices`, `ServiceLocator` and `RPSLib.Debug` come from my own framework, so swap in your own equivalents.
+The C# standards I use in my Unity projects.
 
-## File header
-
-Every script starts with the author block, then usings, then the namespace:
+## C# Class Structure
 
 ```csharp
 /// ------------------------------
 /// Original Author: Matthew Vale
 /// ------------------------------
 
-using RPSCore;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GameCore
 {
-    public class Example : GameService
+    public class #SCRIPTNAME# : MonoBehaviour
     {
+        #region Serialized Fields
+        #endregion
+
+        #region Public Properties
+        #endregion
+
+        #region Private Properties
+        #endregion
+
+
+        #region Unity Flow
+        #endregion
+
+        #region Public Methods
+        #endregion
+
+        #region Private Methods
+        #endregion
+
     }
 }
 ```
@@ -54,7 +69,7 @@ Rules:
 ## Fields and properties
 
 - Inspector fields: `[SerializeField] private` with `_camelCase` names. No public fields.
-- Exception: save data classes (`ISaveData` types and the classes they contain, e.g. `ShipLoadout`, `SystemEconomyState`) keep public PascalCase fields. Newtonsoft writes the save file from public members and uses their names as keys, so making them private or renaming them breaks saves.
+- Exception: save data classes (`ISaveData` types and the classes they contain, e.g. `PlayerData`, `InventoryData`) keep public PascalCase fields. Newtonsoft writes the save file from public members and uses their names as keys, so making them private or renaming them breaks saves.
 - Group inspector fields with `[Header("...")]`; explain non-obvious ones with `[Tooltip("...")]` on the line above.
 - Attribute and field on the same line: `[SerializeField] private Button _saveButton;`
 - Private state: `_camelCase`, `readonly` where possible, target-typed `new()` for collections.
@@ -76,7 +91,7 @@ Rules:
 - Always use braces, even for single-line `if` bodies and early `return`/`continue`.
 - Early returns for guard clauses, followed by a blank line.
 - A blank line between a local variable declaration and the logic that uses it.
-- Use `var` only when the type is visible in the same statement (`var builder = new StringBuilder(256);`). Otherwise write the explicit type (`ShipData shipData = PlayerShipProperties_Persistent.GetData();`).
+- Use `var` only when the type is visible in the same statement (`var builder = new StringBuilder(256);`). Otherwise write the explicit type (`MyData data = DataContainer.GetData();`).
 - `foreach` and `for` loops are both fine.
 - Keep LINQ to a minimum because it allocates garbage. Never use it in per-frame or hot paths; write the loop instead.
 - Null-check serialized references before use (`if (_saveButton != null)`); use `?.` for one-line service calls.
@@ -87,7 +102,7 @@ Rules:
 Always through `RPSLib.Debug.Log`, prefixed with the class name and `::`, with an explicit style:
 
 ```csharp
-RPSLib.Debug.Log($"ShipEditorLauncher :: '{shipData.ShipName}' has no loadout to edit.", RPSLib.Debug.Style.Warning);
+RPSLib.Debug.Log($"MyClassName :: '{someData.data}' is missing!", RPSLib.Debug.Style.Warning);
 ```
 
 Styles in use: `Warning`, `CriticalError`.
