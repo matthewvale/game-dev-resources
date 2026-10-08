@@ -24,6 +24,9 @@ A collection of various resources that I use often.
 - [GameAnalytics - Unity Store](https://assetstore.unity.com/packages/sdk/gameanalytics-fast-free-game-analytics-1501035)
 - [GameAnalytics - Pricing](https://www.gameanalytics.com/pricing)
 
+### Code Standards
+- [Unity C# Code Standards](CODE_STANDARDS.md)
+
 # Platforms
 Various platform links for selling your game.
 
